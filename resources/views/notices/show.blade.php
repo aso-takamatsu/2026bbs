@@ -12,8 +12,8 @@
     <p>{{ $notice->content }}</p>
     <hr>
     @if (Auth::id() === $notice->user_id)                         
-        <p><a href="/notices/{{ $notice->id }}/edit">このお知らせを編集する</a></p>
+        <p><a href="{{ url('/notices/' . $notice->id . '/edit') }}">このお知らせを編集する</a></p>
     @endif    
-    <p><a href="/notices">一覧に戻る</a></p>
+    <p><a href="{{ url('/notices') }}">一覧に戻る</a></p>
 </body>
 </html>

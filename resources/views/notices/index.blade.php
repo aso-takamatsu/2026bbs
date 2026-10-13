@@ -9,22 +9,22 @@
 
     @auth
         <p>{{ Auth::user()->name }}（ID:{{ Auth::user()->id }}）さんでログイン中
-            <form action="/logout" method="POST" style="display:inline;">
+            <form action="{{ url('/logout') }}" method="POST" style="display:inline;">
                 @csrf
                 <button type="submit">ログアウト</button>
             </form>
         </p>
-        <p><a href="/notices/create">新規作成</a></p>
+        <p><a href="{{ url('/notices/create') }}">新規作成</a></p>
     @endauth
 
     @guest
-        <p><a href="/login">ログイン</a> / <a href="/register">新規登録</a></p>
+        <p><a href="{{ url('/login') }}">ログイン</a> / <a href="{{ url('/register') }}">新規登録</a></p>
         <p>お知らせを登録するにはログインしてください。</p>
     @endguest
 
     <p>
-        <a href="/posts">掲示板</a> ｜
-        <a href="/notices">お知らせ</a>
+        <a href="{{ url('/posts') }}">掲示板</a> ｜
+        <a href="{{ url('/notices') }}">お知らせ</a>
     </p>
 
     @if (session('message'))
@@ -35,14 +35,14 @@
 
     @foreach ($notices as $notice)
         <hr>
-        <h2><a href="/notices/{{ $notice->id }}">{{ $notice->title }}</a></h2>
+        <h2><a href="{{ url('/notices/' . $notice->id) }}">{{ $notice->title }}</a></h2>
         <p>投稿者：{{ $notice->user->name }}</p>
         <p>{{ $notice->created_at }}</p>
 
         @if (Auth::id() === $notice->user_id)                    
-            <p><a href="/notices/{{ $notice->id }}/edit">編集</a></p>
+            <p><a href="{{ url('/notices/' . $notice->id . '/edit') }}">編集</a></p>
 
-            <form action="/notices/{{ $notice->id }}" method="POST"
+            <form action="{{ url('/notices/' . $notice->id) }}" method="POST"
                   onsubmit="return confirm('本当に削除しますか？');">
                 @csrf
                 @method('DELETE')

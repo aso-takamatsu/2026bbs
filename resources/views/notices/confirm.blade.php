@@ -12,7 +12,7 @@
     <p>内容：{{ $content }}</p>
 
     <hr>
-    <p><a href="/notices/create">フォームに戻る</a></p>
-    <p><a href="/notices">お知らせ一覧に戻る</a></p>
+    <p><a href="{{ url('/notices/create') }}">フォームに戻る</a></p>
+    <p><a href="{{ url('/notices') }}">お知らせ一覧に戻る</a></p>
 </body>
 </html>

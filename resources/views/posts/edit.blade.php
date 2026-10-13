@@ -7,7 +7,7 @@
 <body>
     <h1>投稿の編集（No.{{ $post->id }}）</h1>
 
-    <form action="/posts/{{ $post->id }}" method="POST">
+    <form action="{{ url('/posts/' . $post->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -24,6 +24,6 @@
         <button type="submit">更新する</button>
     </form>
 
-    <p><a href="/posts">一覧に戻る</a></p>
+    <p><a href="{{ url('/posts') }}">一覧に戻る</a></p>
 </body>
 </html>

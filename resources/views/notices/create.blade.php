@@ -7,7 +7,7 @@
 <body>
     <h1>お知らせの新規作成</h1>
 
-    <form action="/notices" method="POST">
+    <form action="{{ url('/notices') }}" method="POST">
         @csrf
         <p>
             タイトル：<br>
@@ -26,6 +26,6 @@
         <button type="submit">確認する</button>
     </form>
 
-    <p><a href="/notices">お知らせ一覧に戻る</a></p>
+    <p><a href="{{ url('/notices') }}">お知らせ一覧に戻る</a></p>
 </body>
 </html>

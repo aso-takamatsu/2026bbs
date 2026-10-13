@@ -12,7 +12,7 @@
     <p>投稿者名：{{ $author }}</p>
 
     <hr>
-    <p><a href="/posts/create">フォームに戻る</a></p>
+    <p><a href="{{ url('/posts/create') }}">フォームに戻る</a></p>
 
     <hr>
     <p>ミニ掲示板　第2回課題　麻生 太郎</p>

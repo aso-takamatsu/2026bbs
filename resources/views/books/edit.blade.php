@@ -3,7 +3,7 @@
 @section('content')
     <h1>本の編集</h1>
 
-    <form action="/books/{{ $book->id }}" method="POST">
+    <form action="{{ url('/books/' . $book->id) }}" method="POST">
         @csrf
         @method('PUT')
         <p>
@@ -23,5 +23,5 @@
         <button type="submit">更新する</button>
     </form>
 
-    <p><a href="/books">一覧に戻る</a></p>
+    <p><a href="{{ url('/books') }}">一覧に戻る</a></p>
 @endsection

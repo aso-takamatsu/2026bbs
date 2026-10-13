@@ -8,6 +8,6 @@
     <hr>
     <p>{{ $post->body }}</p>
     <hr>
-    <p><a href="/posts/{{ $post->id }}/edit">この投稿を編集する</a></p>
-    <p><a href="/posts">一覧に戻る</a></p>
+    <p><a href="{{ url('/posts/' . $post->id . '/edit') }}">この投稿を編集する</a></p>
+    <p><a href="{{ url('/posts') }}">一覧に戻る</a></p>
 @endsection

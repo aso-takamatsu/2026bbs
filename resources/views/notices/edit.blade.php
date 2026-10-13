@@ -7,7 +7,7 @@
 <body>
     <h1>お知らせの編集</h1>
 
-    <form action="/notices/{{ $notice->id }}" method="POST">
+    <form action="{{ url('/notices/' . $notice->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -24,6 +24,6 @@
         <button type="submit">更新する</button>
     </form>
 
-    <p><a href="/notices">一覧に戻る</a></p>
+    <p><a href="{{ url('/notices') }}">一覧に戻る</a></p>
 </body>
 </html>

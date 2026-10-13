@@ -16,7 +16,7 @@
         </div>
     @endif --}}
 
-    <form action="/posts" method="POST">
+    <form action="{{ url('/posts') }}" method="POST">
         @csrf
         <p>
             タイトル：<br>
@@ -39,6 +39,6 @@
         <button type="submit">投稿する</button>
     </form>
 
-    <p><a href="/posts">一覧に戻る</a></p>
+    <p><a href="{{ url('/posts') }}">一覧に戻る</a></p>
 </body>
 </html>
